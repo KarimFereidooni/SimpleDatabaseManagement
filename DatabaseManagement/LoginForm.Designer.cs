@@ -45,6 +45,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.backgroundWorkerServers = new System.ComponentModel.BackgroundWorker();
             this.lblServersRefresh = new System.Windows.Forms.Label();
+            this.checkBoxRememberPass = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,7 +140,7 @@
             // btnConnect
             // 
             this.btnConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConnect.Location = new System.Drawing.Point(358, 243);
+            this.btnConnect.Location = new System.Drawing.Point(358, 281);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 11;
@@ -151,7 +152,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(439, 243);
+            this.btnCancel.Location = new System.Drawing.Point(439, 281);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 12;
@@ -164,7 +165,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(12, 238);
+            this.label5.Location = new System.Drawing.Point(12, 276);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(516, 2);
             this.label5.TabIndex = 10;
@@ -184,7 +185,7 @@
             // 
             this.txtInitialCatalog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtInitialCatalog.Location = new System.Drawing.Point(113, 196);
+            this.txtInitialCatalog.Location = new System.Drawing.Point(113, 219);
             this.txtInitialCatalog.Name = "txtInitialCatalog";
             this.txtInitialCatalog.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtInitialCatalog.Size = new System.Drawing.Size(353, 21);
@@ -194,7 +195,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 199);
+            this.label6.Location = new System.Drawing.Point(26, 222);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 8;
@@ -217,13 +218,24 @@
             this.lblServersRefresh.TabIndex = 13;
             this.lblServersRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // checkBoxRememberPass
+            // 
+            this.checkBoxRememberPass.AutoSize = true;
+            this.checkBoxRememberPass.Location = new System.Drawing.Point(113, 196);
+            this.checkBoxRememberPass.Name = "checkBoxRememberPass";
+            this.checkBoxRememberPass.Size = new System.Drawing.Size(126, 17);
+            this.checkBoxRememberPass.TabIndex = 14;
+            this.checkBoxRememberPass.Text = "Remember Password";
+            this.checkBoxRememberPass.UseVisualStyleBackColor = true;
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnConnect;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(540, 275);
+            this.ClientSize = new System.Drawing.Size(540, 313);
+            this.Controls.Add(this.checkBoxRememberPass);
             this.Controls.Add(this.lblServersRefresh);
             this.Controls.Add(this.txtInitialCatalog);
             this.Controls.Add(this.pictureBox1);
@@ -274,5 +286,6 @@
         private System.Windows.Forms.Label label6;
         private System.ComponentModel.BackgroundWorker backgroundWorkerServers;
         private System.Windows.Forms.Label lblServersRefresh;
+        private System.Windows.Forms.CheckBox checkBoxRememberPass;
     }
 }

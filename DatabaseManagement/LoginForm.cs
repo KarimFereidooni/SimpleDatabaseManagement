@@ -32,7 +32,7 @@ namespace DatabaseManagement
 
         public DataTable databaseList = new DataTable();
         public bool connected = false;
-        private Connection[] Connections = new Connection[0];
+        private List<Connection> Connections = new List<Connection>();
 
         private void Form_Load(object sender, EventArgs e)
         {
@@ -42,7 +42,7 @@ namespace DatabaseManagement
                 try
                 {
                     string x = File.ReadAllText(connectionsFilePath);
-                    this.Connections = Newtonsoft.Json.JsonConvert.DeserializeObject<Connection[]>(x);
+                    this.Connections = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Connection>>(x);
                     comboBoxServer.Items.Clear();
                     foreach (Connection c in this.Connections)
                     {
@@ -98,13 +98,13 @@ namespace DatabaseManagement
             if (comboBoxAuthentication.SelectedIndex == 0)
             {
                 if (User_Instance)
-                    Program.ConnectionString = string.Format(@"Data Source={0};Initial Catalog={1};Integrated Security=True;User Instance=True", comboBoxServer.Text, txtInitialCatalog.Text);
+                    Program.ConnectionString = string.Format(@"Data Source={0};Initial Catalog={1};Integrated Security=True;User Instance=True;Connect Timeout=60", comboBoxServer.Text, txtInitialCatalog.Text);
                 else
-                    Program.ConnectionString = string.Format(@"Data Source={0};Initial Catalog={1};Integrated Security=True", comboBoxServer.Text, txtInitialCatalog.Text);
+                    Program.ConnectionString = string.Format(@"Data Source={0};Initial Catalog={1};Integrated Security=True;Connect Timeout=60", comboBoxServer.Text, txtInitialCatalog.Text);
             }
             else if (comboBoxAuthentication.SelectedIndex == 1)
             {
-                Program.ConnectionString = string.Format(@"Data Source={0};Initial Catalog={3};User ID={1};Password={2}", comboBoxServer.Text, txtUsername.Text, txtPassword.Text, txtInitialCatalog.Text);
+                Program.ConnectionString = string.Format(@"Data Source={0};Initial Catalog={3};User ID={1};Password={2};Connect Timeout=60", comboBoxServer.Text, txtUsername.Text, txtPassword.Text, txtInitialCatalog.Text);
             }
             DataAccess.Instance = new DataAccess(Program.ConnectionString);
             try
@@ -138,6 +138,34 @@ namespace DatabaseManagement
             {
                 Program.LoginName = txtUsername.Text.Trim();
             }
+            var existingConnection = this.Connections.Where(x => x.Server == comboBoxServer.SelectedItem.ToString()).FirstOrDefault();
+            if (existingConnection != null)
+            {
+                existingConnection.Server = comboBoxServer.SelectedItem.ToString();
+                existingConnection.Authentication = comboBoxAuthentication.SelectedItem.ToString();
+                existingConnection.Username = txtUsername.Text.Trim();
+                if (checkBoxRememberPass.Checked)
+                {
+                    existingConnection.Password = txtPassword.Text.Trim();
+                }
+                existingConnection.Database = txtInitialCatalog.Text.Trim();
+            }
+            else
+            {
+                Connection newConnection = new Connection();
+                newConnection.Server = comboBoxServer.SelectedItem.ToString();
+                newConnection.Authentication = comboBoxAuthentication.SelectedItem.ToString();
+                newConnection.Username = txtUsername.Text.Trim();
+                if (checkBoxRememberPass.Checked)
+                {
+                    newConnection.Password = txtPassword.Text.Trim();
+                }
+                newConnection.Database = txtInitialCatalog.Text.Trim();
+                Connections.Add(newConnection);
+            }
+            var newJson = Newtonsoft.Json.JsonConvert.SerializeObject(this.Connections, Newtonsoft.Json.Formatting.Indented);
+            string connectionsFilePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "Connections.json");
+            File.WriteAllText(connectionsFilePath, newJson);
             this.DialogResult = DialogResult.OK;
             Close();
         }
@@ -227,6 +255,7 @@ namespace DatabaseManagement
                 txtUsername.Text = c.Username;
                 txtPassword.Text = c.Password;
                 txtInitialCatalog.Text = c.Database;
+                checkBoxRememberPass.Checked = true;
             }
         }
     }
