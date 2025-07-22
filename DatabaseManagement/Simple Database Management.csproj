@@ -71,57 +71,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox.cs">
+    <Compile Include="Forms\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox.Designer.cs">
+    <Compile Include="Forms\AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Connection.cs" />
     <Compile Include="Services\DataAccess.cs" />
-    <Compile Include="AttachForm.cs">
+    <Compile Include="Forms\AttachForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AttachForm.Designer.cs">
+    <Compile Include="Forms\AttachForm.Designer.cs">
       <DependentUpon>AttachForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\DatabaseProperties.cs" />
-    <Compile Include="DatabasePropertiesForm.cs">
+    <Compile Include="Forms\DatabasePropertiesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DatabasePropertiesForm.Designer.cs">
+    <Compile Include="Forms\DatabasePropertiesForm.Designer.cs">
       <DependentUpon>DatabasePropertiesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\INIFile.cs" />
     <Compile Include="Services\INISettingsProvider.cs" />
-    <Compile Include="InstallLocalUpdates.cs">
+    <Compile Include="Forms\InstallLocalUpdates.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InstallLocalUpdates.designer.cs">
+    <Compile Include="Forms\InstallLocalUpdates.designer.cs">
       <DependentUpon>InstallLocalUpdates.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewDatabaseForm.cs">
+    <Compile Include="Forms\NewDatabaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewDatabaseForm.Designer.cs">
+    <Compile Include="Forms\NewDatabaseForm.Designer.cs">
       <DependentUpon>NewDatabaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="QueryForm.cs">
+    <Compile Include="Forms\QueryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QueryForm.Designer.cs">
+    <Compile Include="Forms\QueryForm.Designer.cs">
       <DependentUpon>QueryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\PC.cs" />
@@ -129,34 +129,34 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\SqlHelper.cs" />
     <Compile Include="Helpers\VersionComparer.cs" />
-    <EmbeddedResource Include="AboutBox.resx">
+    <EmbeddedResource Include="Forms\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="AttachForm.resx">
+    <EmbeddedResource Include="Forms\AttachForm.resx">
       <DependentUpon>AttachForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="DatabasePropertiesForm.resx">
+    <EmbeddedResource Include="Forms\DatabasePropertiesForm.resx">
       <DependentUpon>DatabasePropertiesForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="InstallLocalUpdates.resx">
+    <EmbeddedResource Include="Forms\InstallLocalUpdates.resx">
       <DependentUpon>InstallLocalUpdates.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewDatabaseForm.resx">
+    <EmbeddedResource Include="Forms\NewDatabaseForm.resx">
       <DependentUpon>NewDatabaseForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="QueryForm.resx">
+    <EmbeddedResource Include="Forms\QueryForm.resx">
       <DependentUpon>QueryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -179,7 +179,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Settings.cs" />
+    <Compile Include="Properties\Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LeftList.jpg" />
@@ -230,7 +230,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties Reactor_Enabled="1" Reactor_Commands="" Reactor_Project="" Reactor_Configuration="ALL" Reactor_Output="&lt;AssemblyLocation&gt;\DotNetReactor\&lt;AssemblyFileName&gt;" Reactor_Deploy="0" />
+      <UserProperties Reactor_Deploy="0" Reactor_Output="&lt;AssemblyLocation&gt;\DotNetReactor\&lt;AssemblyFileName&gt;" Reactor_Configuration="ALL" Reactor_Project="" Reactor_Commands="" Reactor_Enabled="1" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
