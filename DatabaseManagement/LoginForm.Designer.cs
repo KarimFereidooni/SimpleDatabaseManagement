@@ -56,16 +56,17 @@
             this.comboBoxServer.Items.AddRange(new object[] {
             "(local)",
             "(local)\\SQLEXPRESS"});
-            this.comboBoxServer.Location = new System.Drawing.Point(109, 76);
+            this.comboBoxServer.Location = new System.Drawing.Point(113, 88);
             this.comboBoxServer.Name = "comboBoxServer";
             this.comboBoxServer.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.comboBoxServer.Size = new System.Drawing.Size(230, 21);
+            this.comboBoxServer.Size = new System.Drawing.Size(353, 21);
             this.comboBoxServer.TabIndex = 1;
+            this.comboBoxServer.SelectedIndexChanged += new System.EventHandler(this.comboBoxServer_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 79);
+            this.label1.Location = new System.Drawing.Point(26, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 0;
@@ -74,7 +75,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 106);
+            this.label2.Location = new System.Drawing.Point(26, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 2;
@@ -89,17 +90,17 @@
             this.comboBoxAuthentication.Items.AddRange(new object[] {
             "Windows Authentication",
             "SQL Server Authentication"});
-            this.comboBoxAuthentication.Location = new System.Drawing.Point(109, 103);
+            this.comboBoxAuthentication.Location = new System.Drawing.Point(113, 115);
             this.comboBoxAuthentication.Name = "comboBoxAuthentication";
             this.comboBoxAuthentication.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.comboBoxAuthentication.Size = new System.Drawing.Size(230, 21);
+            this.comboBoxAuthentication.Size = new System.Drawing.Size(353, 21);
             this.comboBoxAuthentication.TabIndex = 3;
             this.comboBoxAuthentication.SelectedIndexChanged += new System.EventHandler(this.comboBox_Authentication_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 133);
+            this.label3.Location = new System.Drawing.Point(26, 145);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 4;
@@ -108,7 +109,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 160);
+            this.label4.Location = new System.Drawing.Point(26, 172);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 6;
@@ -118,27 +119,27 @@
             // 
             this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUsername.Location = new System.Drawing.Point(109, 130);
+            this.txtUsername.Location = new System.Drawing.Point(113, 142);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtUsername.Size = new System.Drawing.Size(230, 21);
+            this.txtUsername.Size = new System.Drawing.Size(353, 21);
             this.txtUsername.TabIndex = 5;
             // 
             // txtPassword
             // 
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPassword.Location = new System.Drawing.Point(109, 157);
+            this.txtPassword.Location = new System.Drawing.Point(113, 169);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtPassword.Size = new System.Drawing.Size(230, 21);
+            this.txtPassword.Size = new System.Drawing.Size(353, 21);
             this.txtPassword.TabIndex = 7;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnConnect
             // 
             this.btnConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConnect.Location = new System.Drawing.Point(324, 224);
+            this.btnConnect.Location = new System.Drawing.Point(358, 243);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 11;
@@ -150,7 +151,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(243, 224);
+            this.btnCancel.Location = new System.Drawing.Point(439, 243);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 12;
@@ -163,9 +164,9 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(12, 218);
+            this.label5.Location = new System.Drawing.Point(12, 238);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(393, 2);
+            this.label5.Size = new System.Drawing.Size(516, 2);
             this.label5.TabIndex = 10;
             // 
             // pictureBox1
@@ -174,7 +175,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(417, 70);
+            this.pictureBox1.Size = new System.Drawing.Size(540, 70);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -183,17 +184,17 @@
             // 
             this.txtInitialCatalog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtInitialCatalog.Location = new System.Drawing.Point(109, 184);
+            this.txtInitialCatalog.Location = new System.Drawing.Point(113, 196);
             this.txtInitialCatalog.Name = "txtInitialCatalog";
             this.txtInitialCatalog.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtInitialCatalog.Size = new System.Drawing.Size(230, 21);
+            this.txtInitialCatalog.Size = new System.Drawing.Size(353, 21);
             this.txtInitialCatalog.TabIndex = 9;
             this.txtInitialCatalog.Text = "master";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 187);
+            this.label6.Location = new System.Drawing.Point(26, 199);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 8;
@@ -210,7 +211,7 @@
             // lblServersRefresh
             // 
             this.lblServersRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblServersRefresh.Location = new System.Drawing.Point(345, 77);
+            this.lblServersRefresh.Location = new System.Drawing.Point(472, 89);
             this.lblServersRefresh.Name = "lblServersRefresh";
             this.lblServersRefresh.Size = new System.Drawing.Size(57, 20);
             this.lblServersRefresh.TabIndex = 13;
@@ -222,7 +223,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(417, 255);
+            this.ClientSize = new System.Drawing.Size(540, 275);
             this.Controls.Add(this.lblServersRefresh);
             this.Controls.Add(this.txtInitialCatalog);
             this.Controls.Add(this.pictureBox1);

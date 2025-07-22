@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -30,9 +32,27 @@ namespace DatabaseManagement
 
         public DataTable databaseList = new DataTable();
         public bool connected = false;
+        private Connection[] Connections = new Connection[0];
 
         private void Form_Load(object sender, EventArgs e)
         {
+            string connectionsFilePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "Connections.json");
+            if (File.Exists(connectionsFilePath))
+            {
+                try
+                {
+                    string x = File.ReadAllText(connectionsFilePath);
+                    this.Connections = Newtonsoft.Json.JsonConvert.DeserializeObject<Connection[]>(x);
+                    comboBoxServer.Items.Clear();
+                    foreach (Connection c in this.Connections)
+                    {
+                        comboBoxServer.Items.Add(c.Server);
+                    }
+                }
+                catch (Exception)
+                {
+                }
+            }
             comboBoxServer.Text = Properties.Settings.Default.Server;
             comboBoxAuthentication.SelectedIndex = Properties.Settings.Default.Authentication;
             comboBox_Authentication_SelectedIndexChanged(sender, EventArgs.Empty);
@@ -198,5 +218,16 @@ namespace DatabaseManagement
                 backgroundWorkerServers.CancelAsync();
         }
 
+        private void comboBoxServer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var c = this.Connections.Where(x => x.Server == comboBoxServer.SelectedItem.ToString()).FirstOrDefault();
+            if (c != null)
+            {
+                comboBoxAuthentication.SelectedItem = c.Authentication;
+                txtUsername.Text = c.Username;
+                txtPassword.Text = c.Password;
+                txtInitialCatalog.Text = c.Database;
+            }
+        }
     }
 }

@@ -420,11 +420,13 @@ namespace ZeroAndOne.Sql.UI
                     tr.Commit();
                     this.DataAccess.Connection.Close();
                     //successCount++;
-                    backgroundWorker.ReportProgress(-1, "Version update script " + updateFile + " installed successfully.");
+                    backgroundWorker.ReportProgress(-1, "Update script " + updateFile + " installed successfully.");
+                    backgroundWorker.ReportProgress(-1, "");
                 }
                 else
                 {
                     backgroundWorker.ReportProgress(-1, "Update " + updateFile + " is already installed");
+                    backgroundWorker.ReportProgress(-1, "");
                 }
             }
             e.Result = errorCount;

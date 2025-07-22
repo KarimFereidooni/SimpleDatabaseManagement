@@ -120,55 +120,55 @@
             this.menu_delete,
             this.menuDatabaseProperty});
             this.mainContextMenuStrip.Name = "contextMenuStrip1";
-            this.mainContextMenuStrip.Size = new System.Drawing.Size(181, 202);
+            this.mainContextMenuStrip.Size = new System.Drawing.Size(178, 180);
             this.mainContextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // menu_new
             // 
             this.menu_new.Name = "menu_new";
-            this.menu_new.Size = new System.Drawing.Size(180, 22);
+            this.menu_new.Size = new System.Drawing.Size(177, 22);
             this.menu_new.Text = "&Create a Database...";
             this.menu_new.Click += new System.EventHandler(this.menuNew_Click);
             // 
             // menu_attach
             // 
             this.menu_attach.Name = "menu_attach";
-            this.menu_attach.Size = new System.Drawing.Size(180, 22);
+            this.menu_attach.Size = new System.Drawing.Size(177, 22);
             this.menu_attach.Text = "&Attach...";
             this.menu_attach.Click += new System.EventHandler(this.menu_attach_Click);
             // 
             // menu_refresh
             // 
             this.menu_refresh.Name = "menu_refresh";
-            this.menu_refresh.Size = new System.Drawing.Size(180, 22);
+            this.menu_refresh.Size = new System.Drawing.Size(177, 22);
             this.menu_refresh.Text = "&Refresh";
             this.menu_refresh.Click += new System.EventHandler(this.menu_refresh_Click);
             // 
             // menu_detach
             // 
             this.menu_detach.Name = "menu_detach";
-            this.menu_detach.Size = new System.Drawing.Size(180, 22);
+            this.menu_detach.Size = new System.Drawing.Size(177, 22);
             this.menu_detach.Text = "&Detach";
             this.menu_detach.Click += new System.EventHandler(this.menu_detach_Click);
             // 
             // menu_backup
             // 
             this.menu_backup.Name = "menu_backup";
-            this.menu_backup.Size = new System.Drawing.Size(180, 22);
+            this.menu_backup.Size = new System.Drawing.Size(177, 22);
             this.menu_backup.Text = "&Backup";
             this.menu_backup.Click += new System.EventHandler(this.menu_backup_Click);
             // 
             // menu_restore
             // 
             this.menu_restore.Name = "menu_restore";
-            this.menu_restore.Size = new System.Drawing.Size(180, 22);
+            this.menu_restore.Size = new System.Drawing.Size(177, 22);
             this.menu_restore.Text = "Res&tore";
             this.menu_restore.Click += new System.EventHandler(this.menu_restore_Click);
             // 
             // menu_delete
             // 
             this.menu_delete.Name = "menu_delete";
-            this.menu_delete.Size = new System.Drawing.Size(180, 22);
+            this.menu_delete.Size = new System.Drawing.Size(177, 22);
             this.menu_delete.Text = "D&elete";
             this.menu_delete.Click += new System.EventHandler(this.menuDelete_Click);
             // 
@@ -176,7 +176,7 @@
             // 
             this.menuDatabaseProperty.Name = "menuDatabaseProperty";
             this.menuDatabaseProperty.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuDatabaseProperty.Size = new System.Drawing.Size(180, 22);
+            this.menuDatabaseProperty.Size = new System.Drawing.Size(177, 22);
             this.menuDatabaseProperty.Text = "&Properties";
             this.menuDatabaseProperty.Click += new System.EventHandler(this.toolStripMenuItemDatabaseProperty_Click);
             // 
@@ -467,7 +467,7 @@
             // 
             this.menuConnect.Image = global::DatabaseManagement.Properties.Resources.database;
             this.menuConnect.Name = "menuConnect";
-            this.menuConnect.Size = new System.Drawing.Size(139, 22);
+            this.menuConnect.Size = new System.Drawing.Size(180, 22);
             this.menuConnect.Text = "SQL Server...";
             this.menuConnect.Click += new System.EventHandler(this.MenuConnect_Click);
             // 
@@ -545,7 +545,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Database Management";
+            this.Text = "Simple Database Management";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
