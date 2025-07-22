@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("نرم افزار مدیریت پایگاه های داده")]
+[assembly: AssemblyTitle("Simple SQL Server management")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("کریم فریدونی")]
-[assembly: AssemblyProduct("نرم افزار مدیریت پایگاه های داده")]
+[assembly: AssemblyCompany("Karim Fereidooni")]
+[assembly: AssemblyProduct("Simple SQL Server management")]
 [assembly: AssemblyCopyright("No Copyright")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

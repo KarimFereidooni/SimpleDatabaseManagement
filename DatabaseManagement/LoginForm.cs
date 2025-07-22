@@ -69,7 +69,7 @@ namespace DatabaseManagement
             }
             if (comboBoxServer.Text == "")
             {
-                MessageBox.Show("نام یا آدرس سرور را وارد کنید");
+                MessageBox.Show("Enter the server name");
                 comboBoxServer.Focus();
                 comboBoxServer.SelectAll();
                 return;
@@ -103,7 +103,7 @@ namespace DatabaseManagement
             {
                 databaseList = null;
                 connected = false;
-                MessageBox.Show("خطا در اتصال به دیتابیس" + "\n\n" + ex.Message);
+                MessageBox.Show("Error connecting to database" + "\n\n" + ex.Message);
                 return;
             }
             finally

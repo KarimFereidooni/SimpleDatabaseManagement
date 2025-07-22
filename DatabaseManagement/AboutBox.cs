@@ -12,12 +12,12 @@ namespace DatabaseManagement
         public AboutBox()
         {
             InitializeComponent();
-            this.Text = String.Format("در مورد {0}", AssemblyTitle);
+            this.Text = String.Format("About {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
-            this.textBoxDescription.Text = "کریم فریدونی" + Environment.NewLine + "شماره تماس: 09179283905" + Environment.NewLine + "kf.worknet@gmail.com";
+            this.textBoxDescription.Text = "Karim Fereidooni" + Environment.NewLine + "kf.worknet@gmail.com";
         }
 
         #region Assembly Attribute Accessors

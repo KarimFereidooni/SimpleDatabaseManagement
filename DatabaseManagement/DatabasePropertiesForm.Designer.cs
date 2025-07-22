@@ -48,11 +48,10 @@
             this.Controls.Add(this.propertyGrid1);
             this.KeyPreview = true;
             this.Name = "DatabasePropertiesForm";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "مشخصات دیتابیس";
+            this.Text = "Database Properties";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DatabasePropertiesForm_KeyDown);
             this.ResumeLayout(false);
 

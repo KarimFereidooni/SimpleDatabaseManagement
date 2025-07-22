@@ -61,7 +61,7 @@ namespace DatabaseManagement
                 if (value == true)
                 {
                     lblTitle.ForeColor = Color.Green;
-                    lblTitle.Text = "ارتباط برقرار است";
+                    lblTitle.Text = "Connection not established.";
                     lblTitle.Text = ServerName + "  -  " + UserName;
                 }
                 else
@@ -69,7 +69,7 @@ namespace DatabaseManagement
                     mainListView.Items.Clear();
                     DatabaseList = new DataTable();
                     lblTitle.ForeColor = Color.Red;
-                    lblTitle.Text = "ارتباط برقرار نیست";
+                    lblTitle.Text = "Connection not established.";
                 }
             }
             get
@@ -91,7 +91,7 @@ namespace DatabaseManagement
                     {
                         mainListView.Items.Add(r["name"].ToString(), r["name"].ToString(), 0);
                     }
-                    lblStatus.Text = "تعداد دیتابیس ها = " + DatabaseList.Rows.Count.ToString();
+                    lblStatus.Text = "Number of databases = " + DatabaseList.Rows.Count.ToString();
                 }
             }
             get
@@ -147,7 +147,7 @@ namespace DatabaseManagement
         {
             if (!Connected)
             {
-                MessageBox.Show("اتصال برقرار نیست");
+                MessageBox.Show("Connection not established.");
                 return;
             }
             DatabaseList = null;
@@ -161,7 +161,7 @@ namespace DatabaseManagement
         {
             if (!Connected)
             {
-                MessageBox.Show("اتصال برقرار نیست");
+                MessageBox.Show("Connection not established.");
                 return;
             }
             this.Cursor = Cursors.WaitCursor;
@@ -175,7 +175,7 @@ namespace DatabaseManagement
         {
             if (!Connected)
             {
-                MessageBox.Show("اتصال برقرار نیست");
+                MessageBox.Show("Connection not established.");
                 return;
             }
             try
@@ -196,12 +196,12 @@ namespace DatabaseManagement
         {
             if (!Connected)
             {
-                MessageBox.Show("اتصال برقرار نیست");
+                MessageBox.Show("Connection not established.");
                 return;
             }
             if (mainListView.SelectedItems.Count == 0)
             {
-                MessageBox.Show("دیتابیسی انتخاب نشده است");
+                MessageBox.Show("No database selected.");
                 return;
             }
             else if (mainListView.SelectedItems.Count == 1)
@@ -215,7 +215,7 @@ namespace DatabaseManagement
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("خطا در جدا کردن دیتابیس" + "\n\n" + ex.Message);
+                    MessageBox.Show("Error:" + "\n\n" + ex.Message);
                     return;
                 }
                 finally
@@ -230,12 +230,12 @@ namespace DatabaseManagement
         {
             if (!Connected)
             {
-                MessageBox.Show("اتصال برقرار نیست");
+                MessageBox.Show("Connection not established.");
                 return;
             }
             if (mainListView.SelectedItems.Count == 0)
             {
-                MessageBox.Show("دیتابیسی انتخاب نشده است");
+                MessageBox.Show("No database selected.");
                 return;
             }
             else if (mainListView.SelectedItems.Count == 1)
@@ -249,12 +249,12 @@ namespace DatabaseManagement
                         string s = string.Format(@"BACKUP DATABASE [{0}] TO  DISK = N'{1}' WITH NOFORMAT, INIT,  NAME = N'{0} Full Backup', SKIP, STATS = 10", mainListView.SelectedItems[0].Name, saveFileDialog.FileName);
                         DataAccess.Instance.Execute(s);
                         RefreshData();
-                        lblStatusStrip.Text = "پشتیبان گیری با موفقیت انجام شد";
+                        lblStatusStrip.Text = "Backup completed successfully.";
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("خطا در پشتیبان گیری از دیتابیس" + "\n\n" + ex.Message);
+                    MessageBox.Show("Error backing up database" + "\n\n" + ex.Message);
                     return;
                 }
                 finally
@@ -268,12 +268,12 @@ namespace DatabaseManagement
         {
             if (!Connected)
             {
-                MessageBox.Show("اتصال برقرار نیست");
+                MessageBox.Show("Connection not established.");
                 return;
             }
             if (mainListView.SelectedItems.Count == 0)
             {
-                MessageBox.Show("دیتابیسی انتخاب نشده است");
+                MessageBox.Show("No database selected.");
                 return;
             }
             else if (mainListView.SelectedItems.Count == 1)
@@ -302,11 +302,11 @@ namespace DatabaseManagement
                         DataAccess.Instance.Execute(string.Format(@"RESTORE DATABASE [{0}] FROM  DISK = N'{1}' WITH  FILE = 1,  MOVE N'{2}' TO N'{3}',  MOVE N'{4}' TO N'{5}',  NOUNLOAD,  REPLACE, STATS = 10", mainListView.SelectedItems[0].Name, openFileDialog.FileName, backupDataFile, physicalDataFile, backupLogFile, physicalLogFile));
                         DataAccess.Instance.Execute(string.Format(@"ALTER DATABASE [{0}] SET MULTI_USER", mainListView.SelectedItems[0].Name));
                         RefreshData();
-                        lblStatusStrip.Text = "بازیابی با موفقیت انجام شد";
+                        lblStatusStrip.Text = "Restore completed successfully.";
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("خطا در بازیابی اطلاعات" + "\n\n" + ex.Message);
+                        MessageBox.Show("Error:" + "\n\n" + ex.Message);
                         return;
                     }
                     finally
@@ -408,15 +408,15 @@ namespace DatabaseManagement
         {
             if (!Connected)
             {
-                MessageBox.Show("اتصال برقرار نیست");
+                MessageBox.Show("Connection not established.");
                 return;
             }
             if (mainListView.SelectedItems.Count == 0)
             {
-                MessageBox.Show("دیتابیسی انتخاب نشده است");
+                MessageBox.Show("No database selected.");
                 return;
             }
-            if (MessageBox.Show("دیتابیس انتخاب شده حذف شود؟", "حذف دیتابیس", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, MessageBoxOptions.RightAlign) != DialogResult.Yes)
+            if (MessageBox.Show("Delete the selected database?", "Delete database", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, MessageBoxOptions.RightAlign) != DialogResult.Yes)
                 return;
             else if (mainListView.SelectedItems.Count == 1)
             {
@@ -429,7 +429,7 @@ namespace DatabaseManagement
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("خطا در حذف دیتابیس" + "\n\n" + ex.Message);
+                    MessageBox.Show("Error deleting database" + "\n\n" + ex.Message);
                     return;
                 }
                 finally
@@ -459,12 +459,12 @@ namespace DatabaseManagement
         {
             if (!Connected)
             {
-                MessageBox.Show("اتصال برقرار نیست");
+                MessageBox.Show("Connection not established.");
                 return;
             }
             if (mainListView.SelectedItems.Count == 0)
             {
-                MessageBox.Show("دیتابیسی انتخاب نشده است");
+                MessageBox.Show("No database selected.");
                 return;
             }
             else if (mainListView.SelectedItems.Count == 1)
@@ -478,7 +478,7 @@ namespace DatabaseManagement
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("خطا در قطع اتصالات دیتابیس" + "\n\n" + ex.Message);
+                    MessageBox.Show("Error disconnecting database connections" + "\n\n" + ex.Message);
                     return;
                 }
                 finally
@@ -503,7 +503,7 @@ namespace DatabaseManagement
         {
             if (!Connected)
             {
-                MessageBox.Show("اتصال برقرار نیست");
+                MessageBox.Show("Connection not established.");
                 return;
             }
             QueryForm f;
@@ -519,7 +519,7 @@ namespace DatabaseManagement
         {
             if (!Connected)
             {
-                MessageBox.Show("اتصال برقرار نیست");
+                MessageBox.Show("Connection not established.");
                 return;
             }
             if (mainListView.SelectedItems.Count != 0)
@@ -538,12 +538,12 @@ namespace DatabaseManagement
         {
             if (!Connected)
             {
-                MessageBox.Show("اتصال برقرار نیست");
+                MessageBox.Show("Connection not established.");
                 return;
             }
             if (mainListView.SelectedItems.Count == 0)
             {
-                MessageBox.Show("دیتابیسی انتخاب نشده است");
+                MessageBox.Show("No database selected.");
                 return;
             }
             if (openUpdateFilesDialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)

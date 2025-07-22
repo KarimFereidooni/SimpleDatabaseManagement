@@ -123,7 +123,7 @@ namespace DatabaseManagement
                     {
                         ex = ex.InnerException;
                     }
-                    throw new Exception("ارتباط با سرور اس کیو ال برقرار نیست" + "\n\n" + ex.Message);
+                    throw new Exception("Unable to connect to SQL Server." + "\n\n" + ex.Message);
                 }
             }
             int i;
@@ -149,7 +149,7 @@ namespace DatabaseManagement
             {
                 if (parameters.Length % 2 != 0)
                 {
-                    throw new Exception("پارامترها نادرست است");
+                    throw new Exception("The parameters are incorrect.");
                 }
                 for (int index = 0; index < parameters.Length; index += 2)
                 {
@@ -169,7 +169,7 @@ namespace DatabaseManagement
                     {
                         ex = ex.InnerException;
                     }
-                    throw new Exception("ارتباط با سرور اس کیو ال برقرار نیست" + "\n\n" + ex.Message);
+                    throw new Exception("Unable to connect to SQL Server." + "\n\n" + ex.Message);
                 }
             }
             object i;
@@ -192,7 +192,7 @@ namespace DatabaseManagement
             string error = "";
             if (!TestConnection(out error))
             {
-                throw new Exception("ارتباط با سرور اس کیو ال برقرار نیست" + "\n\n" + error);
+                throw new Exception("Unable to connect to SQL Server." + "\n\n" + error);
             }
             Command.Parameters.Clear();
             Command.CommandText = command;
@@ -200,7 +200,7 @@ namespace DatabaseManagement
             {
                 if (parameters.Length % 2 != 0)
                 {
-                    throw new Exception("پارامترها نادرست است");
+                    throw new Exception("The parameters are incorrect.");
                 }
                 for (int index = 0; index < parameters.Length; index += 2)
                 {

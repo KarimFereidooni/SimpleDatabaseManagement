@@ -25,13 +25,13 @@ namespace DatabaseManagement
             txt_name.Text = txt_name.Text.Trim();
             if (txt_path.Text == "")
             {
-                MessageBox.Show("مسیر فایل اصلی دیتابیس را وارد کنید");
+                MessageBox.Show("Select Database path");
                 txt_path.Focus();
                 return;
             }
             if (txt_name.Text == "")
             {
-                MessageBox.Show("نام دیتابیس را وارد کنید");
+                MessageBox.Show("Enter Database name");
                 txt_path.Focus();
                 return;
             }
@@ -48,7 +48,7 @@ namespace DatabaseManagement
                 {
                     ex = ex.InnerException;
                 }
-                MessageBox.Show("خطا در وصل کردن دیتابیس" + "\n\n" + ex.Message);
+                MessageBox.Show("Error:" + "\n\n" + ex.Message);
                 return;
             }
             finally

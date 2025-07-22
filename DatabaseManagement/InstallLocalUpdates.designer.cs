@@ -46,8 +46,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(485, 35);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "نرم افزار در حال بروز رسانی پایگاه داده است.\r\nلطفا تا پایان عملیات بروز رسانی منت" +
-    "ظر بمانید";
+            this.lblTitle.Text = "Install Database Update Files";
             // 
             // lblLine
             // 
@@ -106,10 +105,9 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "InstallLocalUpdates";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "نصب فایل های بروز رسانی";
+            this.Text = "Install Update Files";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

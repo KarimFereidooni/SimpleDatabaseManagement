@@ -56,10 +56,12 @@
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
@@ -86,7 +88,7 @@
             this.btnExecuteFile.Name = "btnExecuteFile";
             this.btnExecuteFile.Size = new System.Drawing.Size(145, 23);
             this.btnExecuteFile.TabIndex = 5;
-            this.btnExecuteFile.Text = "اجرای خط به خط فایل...";
+            this.btnExecuteFile.Text = "Run Line by Line...";
             this.btnExecuteFile.UseVisualStyleBackColor = true;
             this.btnExecuteFile.Click += new System.EventHandler(this.btnExecuteFile_Click);
             // 
@@ -97,7 +99,7 @@
             this.btnGetData.Name = "btnGetData";
             this.btnGetData.Size = new System.Drawing.Size(131, 23);
             this.btnGetData.TabIndex = 3;
-            this.btnGetData.Text = "دریافت اطلاعات";
+            this.btnGetData.Text = "Fetch Data";
             this.btnGetData.UseVisualStyleBackColor = true;
             this.btnGetData.Click += new System.EventHandler(this.btnGetData_Click);
             // 
@@ -108,7 +110,7 @@
             this.btnExecuteNoRollback.Name = "btnExecuteNoRollback";
             this.btnExecuteNoRollback.Size = new System.Drawing.Size(175, 23);
             this.btnExecuteNoRollback.TabIndex = 4;
-            this.btnExecuteNoRollback.Text = "اجرای دستورات بدون RollBack";
+            this.btnExecuteNoRollback.Text = "Run Script Without Transaction";
             this.btnExecuteNoRollback.UseVisualStyleBackColor = true;
             this.btnExecuteNoRollback.Click += new System.EventHandler(this.btnExecuteNoRollback_Click);
             // 
@@ -120,7 +122,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "خروج";
+            this.btnCancel.Text = "Exit";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -131,7 +133,7 @@
             this.btnExecute.Name = "btnExecute";
             this.btnExecute.Size = new System.Drawing.Size(131, 23);
             this.btnExecute.TabIndex = 0;
-            this.btnExecute.Text = "اجرای دستورات";
+            this.btnExecute.Text = "Run Script";
             this.btnExecute.UseVisualStyleBackColor = true;
             this.btnExecute.Click += new System.EventHandler(this.btnExecute_Click);
             // 
@@ -166,14 +168,14 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
-            this.fileToolStripMenuItem.Text = "&فایل";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.openToolStripMenuItem.Text = "&بازکردن...";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Text = "&Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
@@ -183,28 +185,28 @@
             this.cutToolStripMenuItem,
             this.pasteToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.editToolStripMenuItem.Text = "&ویرایش";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "&Edit";
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.copyToolStripMenuItem.Text = "&کپی";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyToolStripMenuItem.Text = "&Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // cutToolStripMenuItem
             // 
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.cutToolStripMenuItem.Text = "&بریدن";
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cutToolStripMenuItem.Text = "C&ut";
             this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.pasteToolStripMenuItem.Text = "&چسباندن";
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pasteToolStripMenuItem.Text = "&Paste";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // openFileDialog
@@ -244,12 +246,12 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.txtCommand);
-            this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView);
-            this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.splitContainer1.Size = new System.Drawing.Size(716, 308);
             this.splitContainer1.SplitterDistance = 128;
             this.splitContainer1.TabIndex = 2;
@@ -320,12 +322,12 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.splitContainer1);
-            this.splitContainer2.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.splitContainer2.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.lblResult);
-            this.splitContainer2.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.splitContainer2.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.splitContainer2.Size = new System.Drawing.Size(716, 376);
             this.splitContainer2.SplitterDistance = 308;
             this.splitContainer2.TabIndex = 5;
@@ -361,11 +363,10 @@
             this.MinimizeBox = false;
             this.Name = "QueryForm";
             this.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "اجرای اسکریپت";
+            this.Text = "Run Script";
             this.Load += new System.EventHandler(this.Form_query_Load);
             this.panel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
@@ -374,10 +375,12 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

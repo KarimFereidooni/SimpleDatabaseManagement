@@ -38,7 +38,7 @@ namespace DatabaseManagement
             lblResult.Text = "";
             if (cmbDatabase.Text.Trim() == "")
             {
-                MessageBox.Show("دیتابیس را انتخاب کنید");
+                MessageBox.Show("No database selected.");
                 cmbDatabase.Focus();
                 return;
             }
@@ -107,7 +107,7 @@ namespace DatabaseManagement
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("خطا در خواندن فایل" + "\n\n" + ex.Message);
+                    MessageBox.Show("Error:" + "\n\n" + ex.Message);
                 }
             }
         }
@@ -233,7 +233,7 @@ namespace DatabaseManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show("خطا" + "\r\n" + ex.Message);
+                MessageBox.Show("Error" + "\r\n" + ex.Message);
             }
         }
 
@@ -252,7 +252,7 @@ namespace DatabaseManagement
             lblResult.Text = "";
             if (cmbDatabase.Text.Trim() == "")
             {
-                MessageBox.Show("دیتابیس را انتخاب کنید");
+                MessageBox.Show("No database selected.");
                 cmbDatabase.Focus();
                 return;
             }
@@ -315,7 +315,7 @@ namespace DatabaseManagement
             lblResult.Text = "";
             if (cmbDatabase.Text.Trim() == "")
             {
-                MessageBox.Show("دیتابیس را انتخاب کنید");
+                MessageBox.Show("No database selected.");
                 cmbDatabase.Focus();
                 return;
             }
@@ -392,7 +392,7 @@ namespace DatabaseManagement
             lblResult.Text = "";
             if (cmbDatabase.Text.Trim() == "")
             {
-                MessageBox.Show("دیتابیس را انتخاب کنید");
+                MessageBox.Show("No database selected.");
                 cmbDatabase.Focus();
                 return;
             }

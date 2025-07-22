@@ -46,23 +46,23 @@
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(75, 23);
             this.btn_ok.TabIndex = 5;
-            this.btn_ok.Text = "تایید";
+            this.btn_ok.Text = "OK";
             this.btn_ok.UseVisualStyleBackColor = true;
             this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(26, 87);
+            this.btn_cancel.Location = new System.Drawing.Point(347, 87);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 23);
             this.btn_cancel.TabIndex = 6;
-            this.btn_cancel.Text = "انصراف";
+            this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(123, 12);
+            this.txt_name.Location = new System.Drawing.Point(102, 12);
             this.txt_name.Name = "txt_name";
             this.txt_name.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txt_name.Size = new System.Drawing.Size(300, 21);
@@ -72,15 +72,15 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(429, 15);
+            this.label1.Location = new System.Drawing.Point(9, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "نام دیتابیس:";
+            this.label1.Text = "Database Name:";
             // 
             // txt_path
             // 
-            this.txt_path.Location = new System.Drawing.Point(123, 39);
+            this.txt_path.Location = new System.Drawing.Point(102, 39);
             this.txt_path.Name = "txt_path";
             this.txt_path.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txt_path.Size = new System.Drawing.Size(300, 21);
@@ -90,11 +90,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(429, 42);
+            this.label2.Location = new System.Drawing.Point(9, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
+            this.label2.Size = new System.Drawing.Size(33, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "مسیر ذخیره:";
+            this.label2.Text = "Path:";
             // 
             // toolStrip1
             // 
@@ -102,10 +102,10 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton_search});
-            this.toolStrip1.Location = new System.Drawing.Point(37, 35);
+            this.toolStrip1.Location = new System.Drawing.Point(407, 8);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(71, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(74, 25);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -114,11 +114,11 @@
             this.toolStripButton_search.Image = global::DatabaseManagement.Properties.Resources.search;
             this.toolStripButton_search.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_search.Name = "toolStripButton_search";
-            this.toolStripButton_search.Size = new System.Drawing.Size(68, 22);
-            this.toolStripButton_search.Text = "جستجو...";
+            this.toolStripButton_search.Size = new System.Drawing.Size(71, 22);
+            this.toolStripButton_search.Text = "Search...";
             this.toolStripButton_search.Click += new System.EventHandler(this.toolStripButton_search_Click);
             // 
-            // Form_new_database
+            // NewDatabaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -134,12 +134,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form_new_database";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Name = "NewDatabaseForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ساخت دیتابیس جدید";
+            this.Text = "Create a New Database";
             this.Load += new System.EventHandler(this.Form_new_database_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

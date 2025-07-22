@@ -97,7 +97,7 @@
             this.mainListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainListView.HideSelection = false;
             this.mainListView.LargeImageList = this.imageList;
-            this.mainListView.Location = new System.Drawing.Point(0, 75);
+            this.mainListView.Location = new System.Drawing.Point(129, 75);
             this.mainListView.MultiSelect = false;
             this.mainListView.Name = "mainListView";
             this.mainListView.RightToLeftLayout = true;
@@ -120,64 +120,64 @@
             this.menu_delete,
             this.menuDatabaseProperty});
             this.mainContextMenuStrip.Name = "contextMenuStrip1";
-            this.mainContextMenuStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.mainContextMenuStrip.Size = new System.Drawing.Size(149, 180);
+            this.mainContextMenuStrip.Size = new System.Drawing.Size(181, 202);
             this.mainContextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // menu_new
             // 
             this.menu_new.Name = "menu_new";
-            this.menu_new.Size = new System.Drawing.Size(148, 22);
-            this.menu_new.Text = "&ایجاد دیتابیس...";
+            this.menu_new.Size = new System.Drawing.Size(180, 22);
+            this.menu_new.Text = "&Create a Database...";
             this.menu_new.Click += new System.EventHandler(this.menuNew_Click);
             // 
             // menu_attach
             // 
             this.menu_attach.Name = "menu_attach";
-            this.menu_attach.Size = new System.Drawing.Size(148, 22);
-            this.menu_attach.Text = "&متصل کردن...";
+            this.menu_attach.Size = new System.Drawing.Size(180, 22);
+            this.menu_attach.Text = "&Attach...";
             this.menu_attach.Click += new System.EventHandler(this.menu_attach_Click);
             // 
             // menu_refresh
             // 
             this.menu_refresh.Name = "menu_refresh";
-            this.menu_refresh.Size = new System.Drawing.Size(148, 22);
-            this.menu_refresh.Text = "&تازه سازی";
+            this.menu_refresh.Size = new System.Drawing.Size(180, 22);
+            this.menu_refresh.Text = "&Refresh";
             this.menu_refresh.Click += new System.EventHandler(this.menu_refresh_Click);
             // 
             // menu_detach
             // 
             this.menu_detach.Name = "menu_detach";
-            this.menu_detach.Size = new System.Drawing.Size(148, 22);
-            this.menu_detach.Text = "&جدا کردن";
+            this.menu_detach.Size = new System.Drawing.Size(180, 22);
+            this.menu_detach.Text = "&Detach";
             this.menu_detach.Click += new System.EventHandler(this.menu_detach_Click);
             // 
             // menu_backup
             // 
             this.menu_backup.Name = "menu_backup";
-            this.menu_backup.Size = new System.Drawing.Size(148, 22);
-            this.menu_backup.Text = "&پشتیبان گیری";
+            this.menu_backup.Size = new System.Drawing.Size(180, 22);
+            this.menu_backup.Text = "&Backup";
             this.menu_backup.Click += new System.EventHandler(this.menu_backup_Click);
             // 
             // menu_restore
             // 
             this.menu_restore.Name = "menu_restore";
-            this.menu_restore.Size = new System.Drawing.Size(148, 22);
-            this.menu_restore.Text = "&بازیابی";
+            this.menu_restore.Size = new System.Drawing.Size(180, 22);
+            this.menu_restore.Text = "Res&tore";
             this.menu_restore.Click += new System.EventHandler(this.menu_restore_Click);
             // 
             // menu_delete
             // 
             this.menu_delete.Name = "menu_delete";
-            this.menu_delete.Size = new System.Drawing.Size(148, 22);
-            this.menu_delete.Text = "&حذف";
+            this.menu_delete.Size = new System.Drawing.Size(180, 22);
+            this.menu_delete.Text = "D&elete";
             this.menu_delete.Click += new System.EventHandler(this.menuDelete_Click);
             // 
             // menuDatabaseProperty
             // 
             this.menuDatabaseProperty.Name = "menuDatabaseProperty";
-            this.menuDatabaseProperty.Size = new System.Drawing.Size(148, 22);
-            this.menuDatabaseProperty.Text = "م&شخصات";
+            this.menuDatabaseProperty.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.menuDatabaseProperty.Size = new System.Drawing.Size(180, 22);
+            this.menuDatabaseProperty.Text = "&Properties";
             this.menuDatabaseProperty.Click += new System.EventHandler(this.toolStripMenuItemDatabaseProperty_Click);
             // 
             // imageList
@@ -216,7 +216,7 @@
             this.panel1.Controls.Add(this.lblStatus);
             this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(129, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(665, 75);
             this.panel1.TabIndex = 2;
@@ -247,10 +247,10 @@
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblTitle.Size = new System.Drawing.Size(665, 45);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "ارتباط برقرار نیست";
+            this.lblTitle.Text = "No Connection";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // toolStripRight
@@ -258,7 +258,7 @@
             this.toolStripRight.AutoSize = false;
             this.toolStripRight.BackgroundImage = global::DatabaseManagement.Properties.Resources.Right_List;
             this.toolStripRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.toolStripRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.toolStripRight.Dock = System.Windows.Forms.DockStyle.Left;
             this.toolStripRight.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
@@ -275,7 +275,7 @@
             this.btnInstallUpdate,
             this.tsbRefresh,
             this.tsbAbout});
-            this.toolStripRight.Location = new System.Drawing.Point(665, 0);
+            this.toolStripRight.Location = new System.Drawing.Point(0, 0);
             this.toolStripRight.Name = "toolStripRight";
             this.toolStripRight.Size = new System.Drawing.Size(129, 534);
             this.toolStripRight.TabIndex = 1;
@@ -294,7 +294,7 @@
             this.tsbNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNew.Name = "tsbNew";
             this.tsbNew.Size = new System.Drawing.Size(120, 40);
-            this.tsbNew.Text = "ایجاد دیتابیس...";
+            this.tsbNew.Text = "Create a Database";
             this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
             // 
             // tsbDelete
@@ -304,7 +304,7 @@
             this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDelete.Name = "tsbDelete";
             this.tsbDelete.Size = new System.Drawing.Size(120, 40);
-            this.tsbDelete.Text = "حذف";
+            this.tsbDelete.Text = "Delete";
             this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // toolStripSeparator1
@@ -319,7 +319,7 @@
             this.tsbAttach.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAttach.Name = "tsbAttach";
             this.tsbAttach.Size = new System.Drawing.Size(120, 40);
-            this.tsbAttach.Text = "متصل کردن...";
+            this.tsbAttach.Text = "Attach...";
             this.tsbAttach.Click += new System.EventHandler(this.tsb_attach_Click);
             // 
             // tsbDetach
@@ -329,7 +329,7 @@
             this.tsbDetach.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDetach.Name = "tsbDetach";
             this.tsbDetach.Size = new System.Drawing.Size(120, 40);
-            this.tsbDetach.Text = "جدا کردن";
+            this.tsbDetach.Text = "Detach";
             this.tsbDetach.Click += new System.EventHandler(this.tsb_detach_Click);
             // 
             // toolStripSeparator4
@@ -344,7 +344,7 @@
             this.tsbBackup.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbBackup.Name = "tsbBackup";
             this.tsbBackup.Size = new System.Drawing.Size(120, 40);
-            this.tsbBackup.Text = "پشتیبان گیری";
+            this.tsbBackup.Text = "Backup";
             this.tsbBackup.Click += new System.EventHandler(this.tsb_backup_Click);
             // 
             // tsbRestore
@@ -354,7 +354,7 @@
             this.tsbRestore.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbRestore.Name = "tsbRestore";
             this.tsbRestore.Size = new System.Drawing.Size(120, 40);
-            this.tsbRestore.Text = "بازیابی";
+            this.tsbRestore.Text = "Restore";
             this.tsbRestore.Click += new System.EventHandler(this.tsb_restore_Click);
             // 
             // toolStripSeparator3
@@ -369,7 +369,7 @@
             this.tsbExecute.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbExecute.Name = "tsbExecute";
             this.tsbExecute.Size = new System.Drawing.Size(120, 40);
-            this.tsbExecute.Text = "اجرای اسکریپت...";
+            this.tsbExecute.Text = "Run Script...";
             this.tsbExecute.Click += new System.EventHandler(this.tsbExecute_Click);
             // 
             // btnInstallUpdate
@@ -379,7 +379,7 @@
             this.btnInstallUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnInstallUpdate.Name = "btnInstallUpdate";
             this.btnInstallUpdate.Size = new System.Drawing.Size(120, 40);
-            this.btnInstallUpdate.Text = "نصب آپدیت...";
+            this.btnInstallUpdate.Text = "Install Update...";
             this.btnInstallUpdate.Click += new System.EventHandler(this.btnInstallUpdate_Click);
             // 
             // tsbRefresh
@@ -389,7 +389,7 @@
             this.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbRefresh.Name = "tsbRefresh";
             this.tsbRefresh.Size = new System.Drawing.Size(120, 40);
-            this.tsbRefresh.Text = "تازه سازی";
+            this.tsbRefresh.Text = "Refresh";
             this.tsbRefresh.Click += new System.EventHandler(this.tsb_Refresh_Click);
             // 
             // tsbAbout
@@ -399,7 +399,7 @@
             this.tsbAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAbout.Name = "tsbAbout";
             this.tsbAbout.Size = new System.Drawing.Size(120, 40);
-            this.tsbAbout.Text = "درباره...";
+            this.tsbAbout.Text = "About";
             this.tsbAbout.Click += new System.EventHandler(this.tsbAbout_Click);
             // 
             // mainStatusStrip
@@ -447,9 +447,9 @@
             this.toolStripButton_dis,
             this.toolStripSeparator2,
             this.toolStripDropDownButton_view});
-            this.toolStripMain.Location = new System.Drawing.Point(560, 0);
+            this.toolStripMain.Location = new System.Drawing.Point(3, 0);
             this.toolStripMain.Name = "toolStripMain";
-            this.toolStripMain.Size = new System.Drawing.Size(228, 25);
+            this.toolStripMain.Size = new System.Drawing.Size(241, 25);
             this.toolStripMain.TabIndex = 3;
             this.toolStripMain.Text = "toolStrip2";
             // 
@@ -459,8 +459,8 @@
             this.menuConnect});
             this.toolStripDropDownConnect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownConnect.Name = "toolStripDropDownConnect";
-            this.toolStripDropDownConnect.Size = new System.Drawing.Size(75, 22);
-            this.toolStripDropDownConnect.Text = "اتصال به ...";
+            this.toolStripDropDownConnect.Size = new System.Drawing.Size(88, 22);
+            this.toolStripDropDownConnect.Text = "Connect to...";
             this.toolStripDropDownConnect.ToolTipText = "اتصال به ...";
             // 
             // menuConnect
@@ -476,8 +476,8 @@
             this.toolStripButton_dis.Image = global::DatabaseManagement.Properties.Resources.delete;
             this.toolStripButton_dis.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_dis.Name = "toolStripButton_dis";
-            this.toolStripButton_dis.Size = new System.Drawing.Size(83, 22);
-            this.toolStripButton_dis.Text = "قطع اتصال";
+            this.toolStripButton_dis.Size = new System.Drawing.Size(86, 22);
+            this.toolStripButton_dis.Text = "Disconnect";
             this.toolStripButton_dis.Click += new System.EventHandler(this.toolStripButton_dis_Click);
             // 
             // toolStripSeparator2
@@ -494,14 +494,14 @@
             this.toolStripDropDownButton_view.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton_view.Image")));
             this.toolStripDropDownButton_view.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton_view.Name = "toolStripDropDownButton_view";
-            this.toolStripDropDownButton_view.Size = new System.Drawing.Size(52, 22);
-            this.toolStripDropDownButton_view.Text = "نمایش";
+            this.toolStripDropDownButton_view.Size = new System.Drawing.Size(49, 22);
+            this.toolStripDropDownButton_view.Text = "Show";
             // 
             // menuViewIcon
             // 
             this.menuViewIcon.Name = "menuViewIcon";
-            this.menuViewIcon.Size = new System.Drawing.Size(103, 22);
-            this.menuViewIcon.Text = "آیکون";
+            this.menuViewIcon.Size = new System.Drawing.Size(97, 22);
+            this.menuViewIcon.Text = "Icon";
             this.menuViewIcon.Click += new System.EventHandler(this.menuViewIcon_Click);
             // 
             // menuViewList
@@ -509,8 +509,8 @@
             this.menuViewList.Checked = true;
             this.menuViewList.CheckState = System.Windows.Forms.CheckState.Checked;
             this.menuViewList.Name = "menuViewList";
-            this.menuViewList.Size = new System.Drawing.Size(103, 22);
-            this.menuViewList.Text = "لیست";
+            this.menuViewList.Size = new System.Drawing.Size(97, 22);
+            this.menuViewList.Text = "List";
             this.menuViewList.Click += new System.EventHandler(this.menuViewList_Click);
             // 
             // openFileDialog
@@ -544,9 +544,8 @@
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "مدیریت دیتابیس ها";
+            this.Text = "Database Management";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);

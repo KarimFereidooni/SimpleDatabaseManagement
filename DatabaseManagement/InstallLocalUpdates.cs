@@ -308,7 +308,7 @@ namespace ZeroAndOne.Sql.UI
             this.Refresh();
             if (this.UpdateFiles.Count == 0)
             {
-                MessageBox.Show("فایل آپدیتی پیدا نشد");
+                MessageBox.Show("No update file found.");
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 return;
             }
@@ -355,7 +355,7 @@ namespace ZeroAndOne.Sql.UI
         private void SetError(string text)
         {
             //lblStatus.ForeColor = Color.Red;
-            SetStatus("خطا --> " + text);
+            SetStatus("Error --> " + text);
         }
 
         int closeTime = 6;
@@ -366,7 +366,7 @@ namespace ZeroAndOne.Sql.UI
             set
             {
                 closeTime = value;
-                lblTitle.Text = "بروزرسانی با موفقیت به پایان رسید." + Environment.NewLine + value.ToString();
+                lblTitle.Text = "Update completed successfully." + Environment.NewLine + value.ToString();
             }
         }
 
@@ -386,11 +386,11 @@ namespace ZeroAndOne.Sql.UI
             int errorCount = 0;
             foreach (string updateFile in this.UpdateFiles)
             {
-                backgroundWorker.ReportProgress(-1, "در حال چک کردن نسخه " + updateFile + " ...");
+                backgroundWorker.ReportProgress(-1, "Checking version " + updateFile + " ...");
                 string installedUpdate = GetDatabaseUpdate(updateFile);
                 if (string.IsNullOrEmpty(installedUpdate))
                 {
-                    backgroundWorker.ReportProgress(-1, "در حال به روز رسانی پایگاه داده به نسخه " + updateFile + " ...");
+                    backgroundWorker.ReportProgress(-1, "Updating database to version " + updateFile + " ...");
                     this.DataAccess.Connection.Open();
                     System.Data.SqlClient.SqlTransaction tr = this.DataAccess.Connection.BeginTransaction();
                     this.DataAccess.Transaction = tr;
@@ -412,7 +412,7 @@ namespace ZeroAndOne.Sql.UI
                         tr.Rollback();
                         this.DataAccess.Connection.Close();
                         errorCount++;
-                        backgroundWorker.ReportProgress(-2, "خطا در اجرای اسکریپ به روز رسانی نسخه " + updateFile + " " + ex.Message);
+                        backgroundWorker.ReportProgress(-2, "Error executing version update script " + updateFile + " " + ex.Message);
                         e.Result = errorCount;
                         return;
                     }
@@ -420,11 +420,11 @@ namespace ZeroAndOne.Sql.UI
                     tr.Commit();
                     this.DataAccess.Connection.Close();
                     //successCount++;
-                    backgroundWorker.ReportProgress(-1, "اسکریپ به روز رسانی نسخه " + updateFile + " با موفقیت نصب شد");
+                    backgroundWorker.ReportProgress(-1, "Version update script " + updateFile + " installed successfully.");
                 }
                 else
                 {
-                    backgroundWorker.ReportProgress(-1, "نسخه " + updateFile + " قبلا نصب شده است");
+                    backgroundWorker.ReportProgress(-1, "Update " + updateFile + " is already installed");
                 }
             }
             e.Result = errorCount;
@@ -441,14 +441,14 @@ namespace ZeroAndOne.Sql.UI
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (e.Cancelled)
-                SetMessage("عملیات بروز رسانی کنسل شد.");
+                SetMessage("Update operation canceled.");
             else if (e.Error != null)
-                SetError("در اجرای عملیات بروز رسانی خطا رخ داده است.");
+                SetError("An error occurred while performing the update operation.");
             else
             {
                 if (((int)e.Result) == 0)
                 {
-                    SetMessage("عملیات بروز رسانی با موفقیت به پایان رسید.");
+                    SetMessage("The update operation completed successfully.");
                     //timerClose.Start();
                 }
             }

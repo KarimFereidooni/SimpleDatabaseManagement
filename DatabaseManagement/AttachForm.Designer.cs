@@ -44,22 +44,24 @@
             // 
             // btn_ok
             // 
-            this.btn_ok.Location = new System.Drawing.Point(445, 112);
+            this.btn_ok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_ok.Location = new System.Drawing.Point(440, 113);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(75, 23);
             this.btn_ok.TabIndex = 1;
-            this.btn_ok.Text = "تایید";
+            this.btn_ok.Text = "OK";
             this.btn_ok.UseVisualStyleBackColor = true;
             this.btn_ok.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btn_cancel
             // 
+            this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_cancel.Location = new System.Drawing.Point(33, 112);
+            this.btn_cancel.Location = new System.Drawing.Point(359, 113);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 23);
             this.btn_cancel.TabIndex = 2;
-            this.btn_cancel.Text = "انصراف";
+            this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -75,11 +77,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(421, 23);
+            this.label1.Location = new System.Drawing.Point(9, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "مسیر فایل اصلی:";
+            this.label1.Text = "Main File Path:";
             // 
             // txt_name
             // 
@@ -93,11 +95,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(421, 50);
+            this.label2.Location = new System.Drawing.Point(9, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(87, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "نام دیتابیس:";
+            this.label2.Text = "Database Name:";
             // 
             // openFileDialog1
             // 
@@ -105,6 +107,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.toolStrip1);
             this.groupBox1.Controls.Add(this.txt_path);
             this.groupBox1.Controls.Add(this.label2);
@@ -112,7 +117,7 @@
             this.groupBox1.Controls.Add(this.txt_name);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(518, 94);
+            this.groupBox1.Size = new System.Drawing.Size(513, 95);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -122,10 +127,10 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton_search});
-            this.toolStrip1.Location = new System.Drawing.Point(21, 17);
+            this.toolStrip1.Location = new System.Drawing.Point(418, 17);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(77, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(74, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -134,16 +139,16 @@
             this.toolStripButton_search.Image = global::DatabaseManagement.Properties.Resources.search;
             this.toolStripButton_search.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_search.Name = "toolStripButton_search";
-            this.toolStripButton_search.Size = new System.Drawing.Size(74, 22);
-            this.toolStripButton_search.Text = "جستجو...";
+            this.toolStripButton_search.Size = new System.Drawing.Size(71, 22);
+            this.toolStripButton_search.Text = "Search...";
             this.toolStripButton_search.Click += new System.EventHandler(this.toolStripButton_search_Click);
             // 
-            // Form_attach
+            // AttachForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_cancel;
-            this.ClientSize = new System.Drawing.Size(542, 146);
+            this.ClientSize = new System.Drawing.Size(537, 147);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_ok);
@@ -151,12 +156,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form_attach";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Name = "AttachForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "وصل کردن دیتابیس";
+            this.Text = "Attach a Database";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
