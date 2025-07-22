@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace DatabaseManagement
+namespace DatabaseManagement.Forms
 {
     public partial class MainForm : Form
     {
@@ -140,7 +140,7 @@ namespace DatabaseManagement
 
         private void SetDateTime()
         {
-            lblDate.Text = persian_Calendar.GetDayOfWeek(DateTime.Now) + " " + persian_Calendar.GetDateWithMonthName(DateTime.Now, " ");
+            lblDate.Text = PC.GetDayOfWeek(DateTime.Now) + " " + PC.GetDateWithMonthName(DateTime.Now, " ");
             lblTime.Text = DateTime.Now.ToLongTimeString();
         }
 
@@ -551,7 +551,7 @@ namespace DatabaseManagement
                 return;
             System.Data.SqlClient.SqlConnectionStringBuilder csb = new System.Data.SqlClient.SqlConnectionStringBuilder(DatabaseManagement.Services.DataAccess.ConnectionString);
             csb.InitialCatalog = mainListView.SelectedItems[0].Name;
-            ZeroAndOne.Sql.UI.InstallLocalUpdates f = new ZeroAndOne.Sql.UI.InstallLocalUpdates(csb.ConnectionString, openUpdateFilesDialog.FileNames, "sql");
+            DatabaseManagement.Forms.InstallLocalUpdates f = new DatabaseManagement.Forms.InstallLocalUpdates(csb.ConnectionString, openUpdateFilesDialog.FileNames, "sql");
             f.CheckForUpdate();
         }
     }

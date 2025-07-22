@@ -1,4 +1,4 @@
-﻿namespace DatabaseManagement
+﻿namespace DatabaseManagement.Forms
 {
     partial class LoginForm
     {

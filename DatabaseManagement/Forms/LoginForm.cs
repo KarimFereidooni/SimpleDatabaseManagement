@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace DatabaseManagement
+namespace DatabaseManagement.Forms
 {
     public partial class LoginForm : Form
     {

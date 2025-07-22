@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace DatabaseManagement
+namespace DatabaseManagement.Forms
 {
     public partial class AttachForm : Form
     {

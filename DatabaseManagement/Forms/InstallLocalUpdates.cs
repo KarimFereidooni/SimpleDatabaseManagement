@@ -10,7 +10,7 @@ using System.Globalization;
 using System.IO;
 using DatabaseManagement.Helpers;
 
-namespace ZeroAndOne.Sql.UI
+namespace DatabaseManagement.Forms
 {
     public partial class InstallLocalUpdates : Form
     {

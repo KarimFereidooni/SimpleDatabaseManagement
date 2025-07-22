@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace DatabaseManagement
+namespace DatabaseManagement.Forms
 {
     partial class AboutBox : Form
     {

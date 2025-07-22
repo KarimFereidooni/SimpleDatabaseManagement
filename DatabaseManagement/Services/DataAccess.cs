@@ -103,7 +103,7 @@ namespace DatabaseManagement.Services
             {
                 if (parameters.Length % 2 != 0)
                 {
-                    throw new Exception("پارامترها نادرست است");
+                    throw new Exception("The parameters are incorrect.");
                 }
                 for (int index = 0; index < parameters.Length; index += 2)
                 {

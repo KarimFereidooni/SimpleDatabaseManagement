@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 using System.Data.SqlClient;
 using DatabaseManagement.Services;
 
-namespace DatabaseManagement
+namespace DatabaseManagement.Forms
 {
     public partial class QueryForm : Form
     {

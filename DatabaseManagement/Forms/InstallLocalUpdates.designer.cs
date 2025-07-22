@@ -1,4 +1,4 @@
-﻿namespace ZeroAndOne.Sql.UI
+﻿namespace DatabaseManagement.Forms
 {
     partial class InstallLocalUpdates
     {
