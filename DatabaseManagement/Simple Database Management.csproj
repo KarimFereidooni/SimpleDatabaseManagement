@@ -77,23 +77,23 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Connection.cs" />
-    <Compile Include="DataAccess.cs" />
+    <Compile Include="Models\Connection.cs" />
+    <Compile Include="Services\DataAccess.cs" />
     <Compile Include="AttachForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AttachForm.Designer.cs">
       <DependentUpon>AttachForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseProperties.cs" />
+    <Compile Include="Models\DatabaseProperties.cs" />
     <Compile Include="DatabasePropertiesForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DatabasePropertiesForm.Designer.cs">
       <DependentUpon>DatabasePropertiesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="INIFile.cs" />
-    <Compile Include="INISettingsProvider.cs" />
+    <Compile Include="Services\INIFile.cs" />
+    <Compile Include="Services\INISettingsProvider.cs" />
     <Compile Include="InstallLocalUpdates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,11 +124,11 @@
     <Compile Include="QueryForm.Designer.cs">
       <DependentUpon>QueryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PC.cs" />
+    <Compile Include="Services\PC.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlHelper.cs" />
-    <Compile Include="VersionComparer.cs" />
+    <Compile Include="Helpers\SqlHelper.cs" />
+    <Compile Include="Helpers\VersionComparer.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
       <SubType>Designer</SubType>
