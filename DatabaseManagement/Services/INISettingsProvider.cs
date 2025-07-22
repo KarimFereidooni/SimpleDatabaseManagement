@@ -5,7 +5,7 @@ using System.Text;
 using System.Collections.Specialized;
 using System.Configuration;
 
-namespace DatabaseManagement
+namespace DatabaseManagement.Services
 {
     public class INISettingsProvider : SettingsProvider
     {
@@ -18,7 +18,7 @@ namespace DatabaseManagement
         {
             this.INIFileName = iniFileName;
             this.Section = section;
-            this.INIFile = new DatabaseManagement.INIFile(System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, iniFileName));
+            this.INIFile = new DatabaseManagement.Services.INIFile(System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, iniFileName));
         }
 
         public override string ApplicationName
@@ -53,8 +53,8 @@ namespace DatabaseManagement
             }
         }
 
-        private DatabaseManagement.INIFile _INIFile;
-        public DatabaseManagement.INIFile INIFile
+        private DatabaseManagement.Services.INIFile _INIFile;
+        public DatabaseManagement.Services.INIFile INIFile
         {
             get
             {

@@ -24,7 +24,7 @@ namespace DatabaseManagement.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(DatabaseManagement.INISettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(DatabaseManagement.Services.INISettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int Authentication {
@@ -37,7 +37,7 @@ namespace DatabaseManagement.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(DatabaseManagement.INISettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(DatabaseManagement.Services.INISettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string UserName {
@@ -50,7 +50,7 @@ namespace DatabaseManagement.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(DatabaseManagement.INISettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(DatabaseManagement.Services.INISettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("800, 600")]
         public global::System.Drawing.Size Main_Size {
@@ -63,7 +63,7 @@ namespace DatabaseManagement.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(DatabaseManagement.INISettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(DatabaseManagement.Services.INISettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
         public global::System.Drawing.Point Main_Location {
@@ -76,7 +76,7 @@ namespace DatabaseManagement.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(DatabaseManagement.INISettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(DatabaseManagement.Services.INISettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("(Local)")]
         public string Server {
@@ -89,7 +89,7 @@ namespace DatabaseManagement.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(DatabaseManagement.INISettingsProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(DatabaseManagement.Services.INISettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int View {

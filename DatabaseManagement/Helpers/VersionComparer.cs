@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ZeroAndOne.Sql
+namespace DatabaseManagement.Helpers
 {
     public class VersionComparer : System.Collections.Generic.IComparer<string>
     {

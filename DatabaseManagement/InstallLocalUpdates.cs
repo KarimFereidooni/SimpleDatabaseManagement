@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Globalization;
 using System.IO;
+using DatabaseManagement.Helpers;
 
 namespace ZeroAndOne.Sql.UI
 {
@@ -19,7 +20,7 @@ namespace ZeroAndOne.Sql.UI
             //this.CurrentApplication = currentApplication;
             //this.CurrentProgramVersion = currentProgramVersion;
             this.ConnectionString = connectionString;
-            this.DataAccess = new DatabaseManagement.DataAccess(connectionString);
+            this.DataAccess = new DatabaseManagement.Services.DataAccess(connectionString);
             this.UpdateFilesWithPath = updateFiles;
             this.UpdateFilesExtension = updateFilesExtension;
         }
@@ -95,8 +96,8 @@ namespace ZeroAndOne.Sql.UI
         //    }
         //}
 
-        DatabaseManagement.DataAccess _DataAccess;
-        public DatabaseManagement.DataAccess DataAccess
+        DatabaseManagement.Services.DataAccess _DataAccess;
+        public DatabaseManagement.Services.DataAccess DataAccess
         {
             get
             {

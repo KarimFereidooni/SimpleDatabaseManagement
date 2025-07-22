@@ -6,7 +6,7 @@ using System.Data.Common;
 using System.Text.RegularExpressions;
 using System.Data.SqlClient;
 
-namespace ZeroAndOne.Sql
+namespace DatabaseManagement.Helpers
 {
     public class SqlHelper
     {
@@ -103,7 +103,7 @@ namespace ZeroAndOne.Sql
             error = null;
             return true;
         }
-        public static void RunQuery(string query, DatabaseManagement.DataAccess dataAccess, params object[] parameters)
+        public static void RunQuery(string query, DatabaseManagement.Services.DataAccess dataAccess, params object[] parameters)
         {
             Regex regex = new Regex("^\\s*GO\\s*$", RegexOptions.IgnoreCase | RegexOptions.Multiline);
             string[] lines = regex.Split(query);

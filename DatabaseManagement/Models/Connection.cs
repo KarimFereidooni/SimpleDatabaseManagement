@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatabaseManagement
+namespace DatabaseManagement.Models
 {
     public class Connection
     {

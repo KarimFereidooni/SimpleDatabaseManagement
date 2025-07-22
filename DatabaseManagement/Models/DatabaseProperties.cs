@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DatabaseManagement
+namespace DatabaseManagement.Models
 {
     public class DatabaseProperties
     {

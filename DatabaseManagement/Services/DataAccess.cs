@@ -4,7 +4,7 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace DatabaseManagement
+namespace DatabaseManagement.Services
 {
     public class DataAccess : IDisposable
     {

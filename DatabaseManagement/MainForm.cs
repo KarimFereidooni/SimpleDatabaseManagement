@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseManagement.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -548,7 +549,7 @@ namespace DatabaseManagement
             }
             if (openUpdateFilesDialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                 return;
-            System.Data.SqlClient.SqlConnectionStringBuilder csb = new System.Data.SqlClient.SqlConnectionStringBuilder(DatabaseManagement.DataAccess.ConnectionString);
+            System.Data.SqlClient.SqlConnectionStringBuilder csb = new System.Data.SqlClient.SqlConnectionStringBuilder(DatabaseManagement.Services.DataAccess.ConnectionString);
             csb.InitialCatalog = mainListView.SelectedItems[0].Name;
             ZeroAndOne.Sql.UI.InstallLocalUpdates f = new ZeroAndOne.Sql.UI.InstallLocalUpdates(csb.ConnectionString, openUpdateFilesDialog.FileNames, "sql");
             f.CheckForUpdate();
