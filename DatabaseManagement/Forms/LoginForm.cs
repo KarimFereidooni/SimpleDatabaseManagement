@@ -140,11 +140,11 @@ namespace DatabaseManagement.Forms
             {
                 Program.LoginName = txtUsername.Text.Trim();
             }
-            var existingConnection = this.Connections.Where(x => x.Server == comboBoxServer.SelectedItem.ToString()).FirstOrDefault();
+            var existingConnection = this.Connections.Where(x => x.Server == comboBoxServer.Text).FirstOrDefault();
             if (existingConnection != null)
             {
-                existingConnection.Server = comboBoxServer.SelectedItem.ToString();
-                existingConnection.Authentication = comboBoxAuthentication.SelectedItem.ToString();
+                existingConnection.Server = comboBoxServer.Text;
+                existingConnection.Authentication = comboBoxAuthentication.Text;
                 existingConnection.Username = txtUsername.Text.Trim();
                 if (checkBoxRememberPass.Checked)
                 {
@@ -155,8 +155,8 @@ namespace DatabaseManagement.Forms
             else
             {
                 Connection newConnection = new Connection();
-                newConnection.Server = comboBoxServer.SelectedItem.ToString();
-                newConnection.Authentication = comboBoxAuthentication.SelectedItem.ToString();
+                newConnection.Server = comboBoxServer.Text;
+                newConnection.Authentication = comboBoxAuthentication.Text;
                 newConnection.Username = txtUsername.Text.Trim();
                 if (checkBoxRememberPass.Checked)
                 {
