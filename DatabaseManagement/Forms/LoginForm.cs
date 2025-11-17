@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Microsoft.Data.Sql;
 
 namespace DatabaseManagement.Forms
 {
@@ -209,7 +210,7 @@ namespace DatabaseManagement.Forms
         private void backgroundWorkerServers_DoWork(object sender, DoWorkEventArgs e)
         {
             backgroundWorkerServers.ReportProgress(0);
-            DataTable dt = System.Data.Sql.SqlDataSourceEnumerator.Instance.GetDataSources();
+            DataTable dt = SqlDataSourceEnumerator.Instance.GetDataSources();
             if (backgroundWorkerServers.CancellationPending)
             {
                 e.Cancel = true;
