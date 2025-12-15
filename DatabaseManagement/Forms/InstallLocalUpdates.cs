@@ -421,12 +421,12 @@ namespace DatabaseManagement.Forms
                     tr.Commit();
                     this.DataAccess.Connection.Close();
                     //successCount++;
-                    backgroundWorker.ReportProgress(-1, "Update script " + updateFile + " installed successfully.");
+                    backgroundWorker.ReportProgress(-1, "Installed successfully.");
                     backgroundWorker.ReportProgress(-1, "");
                 }
                 else
                 {
-                    backgroundWorker.ReportProgress(-1, "Update " + updateFile + " is already installed");
+                    backgroundWorker.ReportProgress(-1, "Already installed");
                     backgroundWorker.ReportProgress(-1, "");
                 }
             }
