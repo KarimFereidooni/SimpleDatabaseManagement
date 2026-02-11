@@ -261,5 +261,10 @@ namespace DatabaseManagement.Forms
                 checkBoxRememberPass.Checked = true;
             }
         }
+
+        private void btnTogglePassword_Click(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = !txtPassword.UseSystemPasswordChar;
+        }
     }
 }

@@ -46,6 +46,7 @@
             this.backgroundWorkerServers = new System.ComponentModel.BackgroundWorker();
             this.lblServersRefresh = new System.Windows.Forms.Label();
             this.checkBoxRememberPass = new System.Windows.Forms.CheckBox();
+            this.btnTogglePassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,7 +134,7 @@
             this.txtPassword.Location = new System.Drawing.Point(113, 169);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtPassword.Size = new System.Drawing.Size(353, 21);
+            this.txtPassword.Size = new System.Drawing.Size(323, 21);
             this.txtPassword.TabIndex = 7;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
@@ -228,6 +229,17 @@
             this.checkBoxRememberPass.Text = "Remember Password";
             this.checkBoxRememberPass.UseVisualStyleBackColor = true;
             // 
+            // btnTogglePassword
+            // 
+            this.btnTogglePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTogglePassword.Location = new System.Drawing.Point(439, 168);
+            this.btnTogglePassword.Name = "btnTogglePassword";
+            this.btnTogglePassword.Size = new System.Drawing.Size(27, 23);
+            this.btnTogglePassword.TabIndex = 15;
+            this.btnTogglePassword.Text = "👁";
+            this.btnTogglePassword.UseVisualStyleBackColor = true;
+            this.btnTogglePassword.Click += new System.EventHandler(this.btnTogglePassword_Click);
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnConnect;
@@ -235,6 +247,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(540, 313);
+            this.Controls.Add(this.btnTogglePassword);
             this.Controls.Add(this.checkBoxRememberPass);
             this.Controls.Add(this.lblServersRefresh);
             this.Controls.Add(this.txtInitialCatalog);
@@ -287,5 +300,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorkerServers;
         private System.Windows.Forms.Label lblServersRefresh;
         private System.Windows.Forms.CheckBox checkBoxRememberPass;
+        private System.Windows.Forms.Button btnTogglePassword;
     }
 }
