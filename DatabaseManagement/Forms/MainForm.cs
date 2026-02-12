@@ -298,7 +298,7 @@ namespace DatabaseManagement.Forms
                         string physicalDataFile = databaseFiles.Rows[0]["physical_name"].ToString();
                         string physicalLogFile = databaseFiles.Rows[1]["physical_name"].ToString();
                         da.Dispose();
-                        DataAccess.Instance.Command.CommandTimeout = 5 * 60;
+                        DataAccess.Instance.Command.CommandTimeout = 10 * 60;
                         DataAccess.Instance.Execute(string.Format(@"ALTER DATABASE [{0}] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE", mainListView.SelectedItems[0].Name));
                         DataAccess.Instance.Execute(string.Format(@"RESTORE DATABASE [{0}] FROM  DISK = N'{1}' WITH  FILE = 1,  MOVE N'{2}' TO N'{3}',  MOVE N'{4}' TO N'{5}',  NOUNLOAD,  REPLACE, STATS = 10", mainListView.SelectedItems[0].Name, openFileDialog.FileName, backupDataFile, physicalDataFile, backupLogFile, physicalLogFile));
                         DataAccess.Instance.Execute(string.Format(@"ALTER DATABASE [{0}] SET MULTI_USER", mainListView.SelectedItems[0].Name));

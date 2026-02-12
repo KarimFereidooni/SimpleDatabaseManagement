@@ -51,8 +51,8 @@ namespace DatabaseManagement.Services
             this._Adapter = new SqlDataAdapter();
             this._Adapter.SelectCommand = new SqlCommand();
             this._Adapter.SelectCommand.Connection = this._Connection;
-            this._Command.CommandTimeout = 5 * 60;
-            this._Adapter.SelectCommand.CommandTimeout = 5 * 60;
+            this._Command.CommandTimeout = 10 * 60;
+            this._Adapter.SelectCommand.CommandTimeout = 10 * 60;
             DataAccess.ConnectionString = ConnectionString;
         }
         //---------------------------------

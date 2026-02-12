@@ -56,7 +56,7 @@ namespace DatabaseManagement.Forms
                 DataAccess.Instance.Connection.ChangeDatabase(cmbDatabase.Text);
                 SqlTransaction transaction = DataAccess.Instance.Connection.BeginTransaction();
                 DataAccess.Instance.Command.Transaction = transaction;
-                DataAccess.Instance.Command.CommandTimeout = 60;
+                DataAccess.Instance.Command.CommandTimeout = 10 * 60;
 
                 Regex regex = new Regex("^\\s*GO\\s*$", RegexOptions.IgnoreCase | RegexOptions.Multiline);
                 string[] lines = regex.Split(txtCommand.Text);
@@ -269,7 +269,7 @@ namespace DatabaseManagement.Forms
                 DataAccess.Instance.Connection.Open();
                 DataAccess.Instance.Connection.ChangeDatabase(cmbDatabase.Text);
                 SqlTransaction transaction = DataAccess.Instance.Connection.BeginTransaction();
-                DataAccess.Instance.Command.CommandTimeout = 60;
+                DataAccess.Instance.Command.CommandTimeout = 10 * 60;
                 DataAccess.Instance.Command.Transaction = transaction;
                 Regex regex = new Regex("^\\s*GO\\s*$", RegexOptions.IgnoreCase | RegexOptions.Multiline);
                 string[] lines = regex.Split(txtCommand.Text);
@@ -331,7 +331,7 @@ namespace DatabaseManagement.Forms
             {
                 DataAccess.Instance.Connection.Open();
                 DataAccess.Instance.Connection.ChangeDatabase(cmbDatabase.Text);
-                DataAccess.Instance.Command.CommandTimeout = 60;
+                DataAccess.Instance.Command.CommandTimeout = 10 * 60;
 
                 Regex regex = new Regex("^\\s*GO\\s*$", RegexOptions.IgnoreCase | RegexOptions.Multiline);
                 string[] lines = regex.Split(txtCommand.Text);
@@ -405,7 +405,7 @@ namespace DatabaseManagement.Forms
             {
                 DataAccess.Instance.Connection.Open();
                 DataAccess.Instance.Connection.ChangeDatabase(cmbDatabase.Text);
-                DataAccess.Instance.Command.CommandTimeout = 60;
+                DataAccess.Instance.Command.CommandTimeout = 10 * 60;
 
                 System.IO.StreamReader stream = new System.IO.StreamReader(openFileDialog.FileName);
                 while (stream.EndOfStream == false)
