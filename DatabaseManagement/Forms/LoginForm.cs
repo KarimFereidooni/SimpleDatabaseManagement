@@ -266,5 +266,148 @@ namespace DatabaseManagement.Forms
         {
             txtPassword.UseSystemPasswordChar = !txtPassword.UseSystemPasswordChar;
         }
+
+        private void btnCopyConnectionString_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string connectionString = GenerateConnectionString();
+                Clipboard.SetText(connectionString);
+                MessageBox.Show("Connection string copied to clipboard.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error copying connection string: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnPasteConnectionString_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Clipboard.ContainsText())
+                {
+                    string connectionString = Clipboard.GetText();
+                    ParseConnectionString(connectionString);
+                    MessageBox.Show("Connection string parsed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No text found in clipboard.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error parsing connection string: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string GenerateConnectionString()
+        {
+            if (string.IsNullOrWhiteSpace(comboBoxServer.Text))
+            {
+                throw new Exception("Server name is required.");
+            }
+
+            string connectionString = "";
+            
+            if (comboBoxAuthentication.SelectedIndex == 0) // Windows Authentication
+            {
+                connectionString = string.Format("Data Source={0};Initial Catalog={1};Integrated Security=True;Connect Timeout=60", 
+                    comboBoxServer.Text, 
+                    txtInitialCatalog.Text);
+            }
+            else if (comboBoxAuthentication.SelectedIndex == 1) // SQL Server Authentication
+            {
+                connectionString = string.Format("Data Source={0};Initial Catalog={1};User ID={2};Password={3};Connect Timeout=60", 
+                    comboBoxServer.Text, 
+                    txtInitialCatalog.Text, 
+                    txtUsername.Text, 
+                    txtPassword.Text);
+            }
+
+            return connectionString;
+        }
+
+        private void ParseConnectionString(string connectionString)
+        {
+            if (string.IsNullOrWhiteSpace(connectionString))
+            {
+                throw new Exception("Connection string is empty.");
+            }
+
+            var parts = connectionString.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+            var dict = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (var part in parts)
+            {
+                var keyValue = part.Split(new[] { '=' }, 2);
+                if (keyValue.Length == 2)
+                {
+                    dict[keyValue[0].Trim()] = keyValue[1].Trim();
+                }
+            }
+
+            // Parse Data Source
+            if (dict.ContainsKey("Data Source") || dict.ContainsKey("Server"))
+            {
+                comboBoxServer.Text = dict.ContainsKey("Data Source") ? dict["Data Source"] : dict["Server"];
+            }
+
+            // Parse Initial Catalog / Database
+            if (dict.ContainsKey("Initial Catalog"))
+            {
+                txtInitialCatalog.Text = dict["Initial Catalog"];
+            }
+            else if (dict.ContainsKey("Database"))
+            {
+                txtInitialCatalog.Text = dict["Database"];
+            }
+
+            // Determine authentication type
+            bool isIntegratedSecurity = false;
+            if (dict.ContainsKey("Integrated Security"))
+            {
+                string value = dict["Integrated Security"];
+                isIntegratedSecurity = value.Equals("True", StringComparison.OrdinalIgnoreCase) || 
+                                      value.Equals("SSPI", StringComparison.OrdinalIgnoreCase) || 
+                                      value.Equals("yes", StringComparison.OrdinalIgnoreCase);
+            }
+            else if (dict.ContainsKey("Trusted_Connection"))
+            {
+                string value = dict["Trusted_Connection"];
+                isIntegratedSecurity = value.Equals("True", StringComparison.OrdinalIgnoreCase) || 
+                                      value.Equals("yes", StringComparison.OrdinalIgnoreCase);
+            }
+
+            if (isIntegratedSecurity)
+            {
+                comboBoxAuthentication.SelectedIndex = 0; // Windows Authentication
+            }
+            else
+            {
+                comboBoxAuthentication.SelectedIndex = 1; // SQL Server Authentication
+                
+                // Parse User ID
+                if (dict.ContainsKey("User ID"))
+                {
+                    txtUsername.Text = dict["User ID"];
+                }
+                else if (dict.ContainsKey("UID"))
+                {
+                    txtUsername.Text = dict["UID"];
+                }
+
+                // Parse Password
+                if (dict.ContainsKey("Password"))
+                {
+                    txtPassword.Text = dict["Password"];
+                }
+                else if (dict.ContainsKey("PWD"))
+                {
+                    txtPassword.Text = dict["PWD"];
+                }
+            }
+        }
     }
 }

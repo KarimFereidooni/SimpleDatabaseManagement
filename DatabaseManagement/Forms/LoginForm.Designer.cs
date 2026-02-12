@@ -47,6 +47,8 @@
             this.lblServersRefresh = new System.Windows.Forms.Label();
             this.checkBoxRememberPass = new System.Windows.Forms.CheckBox();
             this.btnTogglePassword = new System.Windows.Forms.Button();
+            this.btnCopyConnectionString = new System.Windows.Forms.Button();
+            this.btnPasteConnectionString = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -240,6 +242,28 @@
             this.btnTogglePassword.UseVisualStyleBackColor = true;
             this.btnTogglePassword.Click += new System.EventHandler(this.btnTogglePassword_Click);
             // 
+            // btnCopyConnectionString
+            // 
+            this.btnCopyConnectionString.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCopyConnectionString.Location = new System.Drawing.Point(12, 281);
+            this.btnCopyConnectionString.Name = "btnCopyConnectionString";
+            this.btnCopyConnectionString.Size = new System.Drawing.Size(140, 23);
+            this.btnCopyConnectionString.TabIndex = 16;
+            this.btnCopyConnectionString.Text = "Copy Connection String";
+            this.btnCopyConnectionString.UseVisualStyleBackColor = true;
+            this.btnCopyConnectionString.Click += new System.EventHandler(this.btnCopyConnectionString_Click);
+            // 
+            // btnPasteConnectionString
+            // 
+            this.btnPasteConnectionString.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPasteConnectionString.Location = new System.Drawing.Point(158, 281);
+            this.btnPasteConnectionString.Name = "btnPasteConnectionString";
+            this.btnPasteConnectionString.Size = new System.Drawing.Size(140, 23);
+            this.btnPasteConnectionString.TabIndex = 17;
+            this.btnPasteConnectionString.Text = "Paste Connection String";
+            this.btnPasteConnectionString.UseVisualStyleBackColor = true;
+            this.btnPasteConnectionString.Click += new System.EventHandler(this.btnPasteConnectionString_Click);
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnConnect;
@@ -247,6 +271,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(540, 313);
+            this.Controls.Add(this.btnPasteConnectionString);
+            this.Controls.Add(this.btnCopyConnectionString);
             this.Controls.Add(this.btnTogglePassword);
             this.Controls.Add(this.checkBoxRememberPass);
             this.Controls.Add(this.lblServersRefresh);
@@ -301,5 +327,7 @@
         private System.Windows.Forms.Label lblServersRefresh;
         private System.Windows.Forms.CheckBox checkBoxRememberPass;
         private System.Windows.Forms.Button btnTogglePassword;
+        private System.Windows.Forms.Button btnCopyConnectionString;
+        private System.Windows.Forms.Button btnPasteConnectionString;
     }
 }
