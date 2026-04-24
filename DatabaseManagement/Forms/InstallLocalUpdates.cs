@@ -21,7 +21,7 @@ namespace DatabaseManagement.Forms
             //this.CurrentProgramVersion = currentProgramVersion;
             this.ConnectionString = connectionString;
             this.DataAccess = new DatabaseManagement.Services.DataAccess(connectionString);
-            this.UpdateFilesWithPath = updateFiles;
+            this.UpdateFilesWithPath = updateFiles.ToList();
             this.UpdateFilesExtension = updateFilesExtension;
         }
 
@@ -57,8 +57,8 @@ namespace DatabaseManagement.Forms
             }
         }
 
-        private string[] _UpdateFilesWithPath;
-        public string[] UpdateFilesWithPath
+        private List<string> _UpdateFilesWithPath;
+        public List<string> UpdateFilesWithPath
         {
             get
             {
@@ -223,14 +223,16 @@ namespace DatabaseManagement.Forms
             //List<string> updateFiles = System.IO.Directory.GetFiles(this.UpdateFilesPath, "*." + this.UpdateFilesExtension, System.IO.SearchOption.TopDirectoryOnly).ToList();
             //if (updateFiles.Length == 0)
             //    return System.Windows.Forms.DialogResult.OK;
-            List<string> updateFiles = UpdateFilesWithPath.ToList();
-            for (int i = 0; i < updateFiles.Count; i++)
+
+            UpdateFilesWithPath.Sort(StringComparer.Ordinal);
+            this.UpdateFiles = UpdateFilesWithPath.ToList();
+            for (int i = 0; i < UpdateFiles.Count; i++)
             {
                 //updateFiles[i] = updateFiles[i].Replace(".k.", ".600.");
                 //updateFiles[i] = updateFiles[i].Replace(".a.", ".700.");
                 //updateFiles[i] = updateFiles[i].Replace(".m.", ".800.");
                 //updateFiles[i] = updateFiles[i].Replace(".f.", ".900.");
-                updateFiles[i] = Path.GetFileName(updateFiles[i]);
+                UpdateFiles[i] = Path.GetFileName(UpdateFiles[i]);
             }
             //for (int i = updateFiles.Count - 1; i >= 0; i--)
             //{
@@ -239,16 +241,16 @@ namespace DatabaseManagement.Forms
             //        updateFiles.RemoveAt(i);
             //    }
             //}
-            updateFiles.Sort(StringComparer.Ordinal);
+            //updateFiles.Sort(StringComparer.Ordinal);
             //this.UpdateFiles.AddRange(updateFiles);
-            this.UpdateFiles.Clear();
-            foreach (string item in updateFiles)
-            {
-                //if (char.IsDigit(item[0]))
-                //{
-                this.UpdateFiles.Add(item);
-                //}
-            }
+            //this.UpdateFiles.Clear();
+            //foreach (string item in updateFiles)
+            //{
+            //    //if (char.IsDigit(item[0]))
+            //    //{
+            //    this.UpdateFiles.Add(item);
+            //    //}
+            //}
             //if (this.UpdateFiles.Count == 0)
             //    return System.Windows.Forms.DialogResult.OK;
             if (owner == null)
@@ -385,8 +387,10 @@ namespace DatabaseManagement.Forms
         {
             //successCount = 0;
             int errorCount = 0;
-            foreach (string updateFile in this.UpdateFiles)
+            for (int i = 0; i < this.UpdateFiles.Count; i++)
             {
+                string updateFile = this.UpdateFiles[i];
+                string filePath = this.UpdateFilesWithPath[i];
                 backgroundWorker.ReportProgress(-1, "Checking version " + updateFile + " ...");
                 string installedUpdate = GetDatabaseUpdate(updateFile);
                 if (string.IsNullOrEmpty(installedUpdate))
@@ -397,7 +401,6 @@ namespace DatabaseManagement.Forms
                     this.DataAccess.Transaction = tr;
 
                     //string filePath = System.IO.Path.Combine(this.UpdateFilesPath, updateFile /*+ "." + this.UpdateFilesExtension*/);
-                    string filePath = UpdateFilesWithPath[this.UpdateFiles.IndexOf(updateFile)];
                     string query = System.IO.File.ReadAllText(filePath);
                     try
                     {
