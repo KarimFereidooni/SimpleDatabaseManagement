@@ -396,15 +396,25 @@ namespace DatabaseManagement.Forms
                 if (string.IsNullOrEmpty(installedUpdate))
                 {
                     backgroundWorker.ReportProgress(-1, "Updating database to version " + updateFile + " ...");
-                    this.DataAccess.Connection.Open();
-                    System.Data.SqlClient.SqlTransaction tr = this.DataAccess.Connection.BeginTransaction();
-                    this.DataAccess.Transaction = tr;
 
                     //string filePath = System.IO.Path.Combine(this.UpdateFilesPath, updateFile /*+ "." + this.UpdateFilesExtension*/);
                     string query = System.IO.File.ReadAllText(filePath);
+
+                    // A script that manages its own transactions (or uses statements that are not allowed
+                    // inside a transaction) is run as is, like SSMS does. Other scripts are wrapped in a
+                    // transaction so a failed script leaves no partial changes.
+                    bool useTransaction = SqlHelper.CanRunInTransaction(query);
+                    if (!useTransaction)
+                        backgroundWorker.ReportProgress(-1, "The script manages its own transactions; running it without a wrapping transaction.");
+
+                    this.DataAccess.Connection.Open();
+                    System.Data.SqlClient.SqlTransaction tr = useTransaction ? this.DataAccess.Connection.BeginTransaction() : null;
+                    this.DataAccess.Transaction = tr;
                     try
                     {
                         SqlHelper.RunQuery(query, this.DataAccess);
+                        if (!useTransaction && Convert.ToInt32(this.DataAccess.ExecuteScalar("SELECT @@TRANCOUNT")) > 0)
+                            throw new Exception("The script left a transaction open (BEGIN TRANSACTION without COMMIT). Its changes were rolled back.");
                         this.DataAccess.Execute("INSERT INTO [DatabaseUpdate] ([InstalledUpdate]) Values (@InstalledUpdate)", "@InstalledUpdate", updateFile);
                     }
                     catch (Exception ex)
@@ -413,7 +423,7 @@ namespace DatabaseManagement.Forms
                         {
                             ex = ex.InnerException;
                         }
-                        tr.Rollback();
+                        RollbackOpenTransaction(tr);
                         this.DataAccess.Connection.Close();
                         errorCount++;
                         backgroundWorker.ReportProgress(-2, "Error executing version update script " + updateFile + " " + ex.Message);
@@ -421,7 +431,8 @@ namespace DatabaseManagement.Forms
                         return;
                     }
 
-                    tr.Commit();
+                    if (tr != null)
+                        tr.Commit();
                     this.DataAccess.Connection.Close();
                     //successCount++;
                     backgroundWorker.ReportProgress(-1, "Installed successfully.");
@@ -434,6 +445,26 @@ namespace DatabaseManagement.Forms
                 }
             }
             e.Result = errorCount;
+        }
+
+        /// <summary>
+        /// Rolls back whatever transaction is still open after a failed script. The server may already have
+        /// rolled it back (for example after a ROLLBACK in the script or an XACT_ABORT error), so a
+        /// SqlTransaction that is no longer usable is not an error here.
+        /// </summary>
+        private void RollbackOpenTransaction(System.Data.SqlClient.SqlTransaction tr)
+        {
+            try
+            {
+                if (tr != null && tr.Connection != null)
+                    tr.Rollback();
+                else
+                    this.DataAccess.Execute("IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION");
+            }
+            catch (Exception)
+            {
+                // Already completed on the server; the script's own error is what gets reported
+            }
         }
 
         private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
