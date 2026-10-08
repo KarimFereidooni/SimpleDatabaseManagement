@@ -5,9 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
 using System.Data.SqlClient;
 using DatabaseManagement.Services;
+using DatabaseManagement.Helpers;
 
 namespace DatabaseManagement.Forms
 {
@@ -58,8 +58,7 @@ namespace DatabaseManagement.Forms
                 DataAccess.Instance.Command.Transaction = transaction;
                 DataAccess.Instance.Command.CommandTimeout = 10 * 60;
 
-                Regex regex = new Regex("^\\s*GO\\s*$", RegexOptions.IgnoreCase | RegexOptions.Multiline);
-                string[] lines = regex.Split(txtCommand.Text);
+                string[] lines = SqlHelper.SplitBatches(txtCommand.Text);
                 for (int i = 0; i <= lines.Length - 1; i++)
                 {
                     if (lines[i].Length > 0)
@@ -271,8 +270,7 @@ namespace DatabaseManagement.Forms
                 SqlTransaction transaction = DataAccess.Instance.Connection.BeginTransaction();
                 DataAccess.Instance.Command.CommandTimeout = 10 * 60;
                 DataAccess.Instance.Command.Transaction = transaction;
-                Regex regex = new Regex("^\\s*GO\\s*$", RegexOptions.IgnoreCase | RegexOptions.Multiline);
-                string[] lines = regex.Split(txtCommand.Text);
+                string[] lines = SqlHelper.SplitBatches(txtCommand.Text);
                 for (int i = 0; i <= lines.Length - 1; i++)
                 {
                     if (lines[i].Length > 0)
@@ -333,8 +331,7 @@ namespace DatabaseManagement.Forms
                 DataAccess.Instance.Connection.ChangeDatabase(cmbDatabase.Text);
                 DataAccess.Instance.Command.CommandTimeout = 10 * 60;
 
-                Regex regex = new Regex("^\\s*GO\\s*$", RegexOptions.IgnoreCase | RegexOptions.Multiline);
-                string[] lines = regex.Split(txtCommand.Text);
+                string[] lines = SqlHelper.SplitBatches(txtCommand.Text);
                 for (int i = 0; i <= lines.Length - 1; i++)
                 {
                     if (lines[i].Length > 0)
